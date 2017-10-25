@@ -1,0 +1,91 @@
+<!-- Login Form -->
+<div class="row">
+  <div class="nb-login col-md-4 mx-auto">
+    <h3 class="scenter">Sign In</h3>
+
+    <form>
+      <div class="form-group">
+        <label for="user">User</label>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
+          <input type="text" class="form-control" name="user" id="user" [(ngModel)]="userName" aria-describedby="helpId" placeholder="Enter User Name">
+        </div>
+        <!--<smaldivl id="helpId" class="form-text text-muted">Help text</small>-->
+      </div>
+      <div class="form-group">
+
+        <label for="password">Password</label>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">@</span>
+          <input type="password" class="form-control" name="password" [(ngModel)]="passWord" id="password" placeholder="Enter Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" (click)="login()">Sing In</button>
+      </div>
+      <!--<button type="button" class="btn btn-link">Create new User</button>-->
+    </form>
+
+    <div class="form-footer">
+      <button type="button" class="btn-link" data-toggle="modal" data-target="#createUser">Create new User</button>
+      <!--<a href="#">Create account</a>-->or
+      <button type="button" class="btn-link">Forgot Password</button>
+      <!--<a href="#">Forgot Password</a>-->
+    </div>
+  </div>
+
+</div>
+<div class="row">
+  <!-- Modal -->
+  <div class="modal fade" id="createUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create User</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" class="form-control" name="firstName" placeholder="Enter First Name">
+              <!--<smaldivl id="helpId" class="form-text text-muted">Help text</small>-->
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" name="lastName" placeholder="Enter Last Name">
+              <!--<smaldivl id="helpId" class="form-text text-muted">Help text</small>-->
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+
+              <input type="email" class="form-control" name="email" placeholder="Enter Email">
+              <!--<smaldivl id="helpId" class="form-text text-muted">Help text</small>-->
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password" [(ngModel)]="passWord" placeholder="Enter Password">
+            </div>
+
+            <div class="form-group">
+              <label for="password">Confirm Password</label>
+              <input type="password" class="form-control" name="confPassword" [(ngModel)]="passWord" placeholder="Confirm Password">
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block" (click)="login()">Sing In</button>
+            </div>
+            <!--<button type="button" class="btn btn-link">Create new User</button>-->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,141 @@
+<!-- Preloader 
+ <div class="preloader">
+  <div class="cssload-speeding-wheel"></div>
+</div>-->
+
+<section id="wrapper" class="login-register">
+    <div class="login-box">
+        <div class="white-box">
+            <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" class="form-horizontal form-material" id="loginform" action="index.html">
+                <h3 class="box-title m-b-20">Registro</h3>
+                <div class="form-group " [ngClass]="{
+                    'has-danger': nombre.invalid && (nombre.dirty || nombre.touched),
+                    'has-success': nombre.valid 
+                    }">
+                    <div class="col-xs-12">
+                        <input [(ngModel)]="user.nombre" #nombre="ngModel" name="nombre" pattern="^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$" required class="form-control"
+                            type="text" placeholder="Nombre">
+                        <div class="form-control-feedback" *ngIf="nombre.invalid && (nombre.touched || nombre.dirty)">
+                            <p *ngIf="nombre.errors.required">Nombre es requerido</p>
+                            <p *ngIf="nombre.errors.pattern">Nonmbre formato invalido</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6" [ngClass]="{
+                        'has-danger': apellidoPaterno.invalid && (apellidoPaterno.dirty || apellidoPaterno.touched), 
+                        'has-success': apellidoPaterno.valid && (apellidoPaterno.dirty || apellidoPaterno.touched)
+                        }">
+                        <input [(ngModel)]="user.apellidoPaterno" #apellidoPaterno="ngModel" name="apellidoPaterno" pattern="^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$"
+                            class="form-control" type="text" required placeholder="Apellido Paterno">
+                        <div class="form-control-feedback" *ngIf="apellidoPaterno.errors && (apellidoPaterno.dirty || apellidoPaterno.touched)">
+                            <p *ngIf="apellidoPaterno.errors.pattern">Ingresa un apellidoPaterno valido</p>
+                            <p *ngIf="apellidoPaterno.errors.required">apellidoPaterno requerido</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" [ngClass]="{
+                        'has-danger': apellidoMaterno.invalid && (apellidoMaterno.dirty || apellidoMaterno.touched), 
+                        'has-success': apellidoMaterno.valid && (apellidoMaterno.dirty || apellidoMaterno.touched)
+                        }">
+                        <input [(ngModel)]="user.apellidoMaterno" #apellidoMaterno="ngModel" name="apellidoMaterno" pattern="^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$"
+                            class="form-control" type="text" required placeholder="Apellido Materno">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6" [ngClass]="{
+                        'has-danger': telefono.invalid && (telefono.dirty || telefono.touched), 
+                        'has-success': telefono.valid && (telefono.dirty || telefono.touched)
+                        }">
+                        <input [(ngModel)]="user.telefono" #telefono="ngModel" name="telefono" class="form-control" type="text" required placeholder="Telefono">
+                        <div class="form-control-feedback" *ngIf="telefono.errors && (telefono.dirty || telefono.touched)">
+                            <p *ngIf="telefono.errors.pattern">Ingresa un telefono valido</p>
+                            <p *ngIf="telefono.errors.required">telefono requerido</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" [ngClass]="{
+                        'has-danger': ext.invalid && (ext.dirty || ext.touched), 
+                        'has-success': ext.valid && (ext.dirty || ext.touched)
+                        }">
+                        <input [(ngModel)]="user.ext" #ext="ngModel" name="ext" class="form-control" type="text" required placeholder="Extension">
+                    </div>
+                </div>
+
+                <div class="form-group " [ngClass]="{
+                    'has-danger': email.invalid && (email.dirty || email.touched),
+                    'has-success': email.valid 
+                    }">
+                    <div class="col-xs-12">
+                        <input [(ngModel)]="user.email" #email="ngModel" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required
+                            class="form-control" type="text" placeholder="Email">
+                        <div class="form-control-feedback" *ngIf="email.invalid && (email.touched || email.dirty)">
+                            <p *ngIf="email.errors.required">Email es requerido</p>
+                            <p *ngIf="email.errors.pattern">Email formato invalido</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group " [ngClass]="{
+                    'has-danger': empresa.invalid && (empresa.dirty || empresa.touched),
+                    'has-success': empresa.valid 
+                    }">
+                    <div class="col-xs-12">
+                        <select [(ngModel)]="user.belongs" #empresa="ngModel" name="belongs" required min="2" class="form-control">
+                            <option *ngFor="let em of empresas" [selected]="em.rid == 1" [disabled]="em.rid == 1" [ngValue]="em">{{em.nombre}}</option>
+                        </select>
+
+                        <div class="form-control-feedback" *ngIf="empresa.invalid && (empresa.touched || empresa.dirty)">
+                            <p *ngIf="empresa.errors.required">empresa es requerido</p>
+                            <p *ngIf="empresa.errors.pattern">empresa formato invalido</p>>
+                            <p *ngIf="empresa.errors.min">empresa formato invalido</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group " [ngClass]="{
+                    'has-danger': password.invalid && (password.dirty || password.touched),
+                    'has-success': password.valid 
+                    }">
+                    <div class="col-xs-12">
+                        <input [(ngModel)]="user.credencialesUsuario.passwordNoEnc" #password="ngModel" name="password" class="form-control" type="password" required placeholder="Password">
+                        <div class="form-control-feedback" *ngIf="password.invalid && (password.touched || password.dirty)">
+                            <p *ngIf="password.errors.required">Password es requerido</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="{
+                    'has-danger': pConfirmerd.invalid && (pConfirmerd.dirty || pConfirmerd.touched),
+                    'has-success': pConfirmerd.valid 
+                    }">
+                    <div class="col-xs-12">
+                        <input ngModel name="pConfirmerd" #pConfirmerd="ngModel" class="form-control" type="password" required placeholder="Confirmar Password">
+                        <div class="form-control-feedback" *ngIf="pConfirmerd.invalid && (pConfirmerd.touched || pConfirmerd.dirty)">
+                            <p *ngIf="pConfirmerd.errors.required">Confirmar password es requerido</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div class="checkbox checkbox-primary p-t-0">
+                            <input id="checkbox-signup" type="checkbox">
+                            <label for="checkbox-signup"> I agree to all
+                                <a href="#">Terms</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group text-center m-t-20">
+                    <div class="col-xs-12">
+                        <button [disabled]="f.invalid" class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Sign Up</button>
+                    </div>
+                </div>
+                <div class="form-group m-b-0">
+                    <div class="col-sm-12 text-center">
+                        <p>Already have an account?
+                            <a href="login.html" class="text-primary m-l-5">
+                                <b>Sign In</b>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

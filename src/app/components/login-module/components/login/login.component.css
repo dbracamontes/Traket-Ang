@@ -1,0 +1,17 @@
+/*.nb-login{
+	background-color: #e74c3c;
+	padding-top: 5% !important;
+	padding: 5%;
+	width: 100%;
+
+}*/
+
+.create-user {
+	color: rgb(104, 145, 162);
+	text-align: center;
+}
+
+.form-footer{
+	text-align: center;
+	color: rgb(104, 145, 162);
+}
