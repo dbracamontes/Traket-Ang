@@ -11,12 +11,12 @@ export class User {
     public ext: number;
     public email: string;
     public belongs: Empresa;
-    public credencialesUsuario: CredencialesUsuario;
+    //public credencialesUsuario: CredencialesUsuario;
 
 
     constructor() {
         this.belongs = new Empresa();
-        this.credencialesUsuario = new CredencialesUsuario();
+        //this.credencialesUsuario = new CredencialesUsuario();
     }
 
     /*constructor(id: number, firstName: string, lastName: string,
